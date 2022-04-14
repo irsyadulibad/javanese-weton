@@ -1,0 +1,30 @@
+{
+    "name": "irsyadulibad/weton",
+    "description": "Library to calculate and output the Javanese Weton",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Irsyadulibad\\Weton\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Irsyadulibad\\Weton\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "irsyadulibad",
+            "email": "ahmadirsyadulibad7@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "pestphp/pest": "^1.21"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
