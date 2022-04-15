@@ -14,8 +14,8 @@ You may use [composer](https://getcomposer.org) to install **javanese-weton** in
 composer require irsyadulibad/weton
 ```
 
-## ✈️ Usage
-### Getting Started
+## 🛩️ Usage
+### ✨ Getting Started
 First, you need pass a *DateTime* to convert it into weton:
 
 ```php
@@ -30,7 +30,7 @@ $date = new DateTime('2022-04-15');
 $weton = Weton::from($date);
 ```
 
-### Docs
+### 📖 Docs
 - **Get weton's day an it's neptu value**
 
 ```php
@@ -83,7 +83,7 @@ echo $weton;
 echo $weton->toIndonesian();
 ```
 
-## Credits
+## 📄 Credits
 Github: [https://github.com/irsyadulibad]\
 Website: [http://irsyadulibad.my.id]\
 Facebook: [https://facebook.com/irsyadulibad.dev]
