@@ -38,6 +38,11 @@ class Weton
         $this->countWeton();
     }
 
+    public function __toString()
+    {
+        return $this->pasaran->name . ' ' . $this->day->name;
+    }
+
     private function countWeton(): void
     {
         $mod = ($this->gregVal($this->date) - $this->gregVal($this->reference)) % 5;

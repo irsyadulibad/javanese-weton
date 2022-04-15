@@ -31,3 +31,8 @@ it('should return weton of 17 Aug 1945 on Legi Friday', function() {
     $this->assertEquals(11, $weton->totalNeptu);
 });
 
+it('must return Pon Sunday of 21 Jun 2022', function() {
+    $weton = new Weton(new DateTime("2022-06-26"));
+
+    $this->assertEquals('Pon Sunday', strval($weton));
+});
