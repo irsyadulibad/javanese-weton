@@ -8,6 +8,7 @@ use Irsyadulibad\Weton\Exceptions\WetonException;
 class Weton
 {
     public int $totalNeptu;
+    public bool $indonesian = false;
     public object $pasaran, $day;
 
     private DateTime $reference, $date;
@@ -40,12 +41,34 @@ class Weton
 
     public function __toString()
     {
-        return $this->pasaran->name . ' ' . $this->day->name;
+        if($this->indonesian) {
+            return "{$this->day->name} {$this->pasaran->name}";
+        }
+
+        return "{$this->pasaran->name} {$this->day->name}";
     }
 
     public static function from(DateTime $date)
     {
         return new self($date);
+    }
+
+    public function toIndonesian()
+    {
+        $indonesianDays = [
+            'Sunday' => 'Minggu',
+            'Monday' => 'Senin',
+            'Tuesday' => 'Selasa',
+            'Wednesday' => 'Rabu',
+            'Thursday' => 'Kamis',
+            'Friday' => 'Jum\'at',
+            'Saturday' => 'Sabtu'
+        ];
+
+        $this->indonesian = true;
+        $this->day->name = $indonesianDays[$this->day->name];
+
+        return $this;
     }
 
     private function countWeton(): void

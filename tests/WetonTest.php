@@ -42,3 +42,10 @@ it('can call with static style', function() {
 
     $this->assertEquals('Legi Saturday', strval($weton));
 });
+
+it('can formatted to indonesian', function() {
+    $weton = Weton::from(new DateTime('2022-08-17'))->toIndonesian();
+
+    $this->assertEquals('Rabu', $weton->day->name);
+    $this->assertEquals('Rabu Kliwon', strval($weton));
+});
