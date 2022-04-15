@@ -43,6 +43,11 @@ class Weton
         return $this->pasaran->name . ' ' . $this->day->name;
     }
 
+    public static function from(DateTime $date)
+    {
+        return new self($date);
+    }
+
     private function countWeton(): void
     {
         $mod = ($this->gregVal($this->date) - $this->gregVal($this->reference)) % 5;

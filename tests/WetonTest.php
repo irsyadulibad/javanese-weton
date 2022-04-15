@@ -36,3 +36,9 @@ it('must return Pon Sunday of 21 Jun 2022', function() {
 
     $this->assertEquals('Pon Sunday', strval($weton));
 });
+
+it('can call with static style', function() {
+    $weton = Weton::from(new DateTime('2022-12-31'));
+
+    $this->assertEquals('Legi Saturday', strval($weton));
+});
