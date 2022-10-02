@@ -3,6 +3,7 @@
 namespace Irsyadulibad\Weton;
 
 use DateTime;
+use DateTimeImmutable;
 use Irsyadulibad\Weton\Exceptions\WetonException;
 
 class Weton
@@ -11,7 +12,7 @@ class Weton
     public bool $indonesian = false;
     public object $pasaran, $day;
 
-    private DateTime $reference, $date;
+    private DateTime|DateTimeImmutable $reference, $date;
 
     protected $nepPas = [9, 7, 4, 8, 5];
 
@@ -33,7 +34,7 @@ class Weton
         'Saturday' => 9
     ];
 
-    public function __construct(DateTime $date)
+    public function __construct(DateTime|DateTimeImmutable $date)
     {
         $this->validate($date);
         $this->countWeton();
@@ -48,7 +49,7 @@ class Weton
         return "{$this->pasaran->name} {$this->day->name}";
     }
 
-    public static function from(DateTime $date)
+    public static function from(DateTime|DateTimeImmutable $date)
     {
         return new self($date);
     }
@@ -89,13 +90,13 @@ class Weton
         $this->totalNeptu = ($this->day->neptu + $this->pasaran->neptu);
     }
 
-    private function gregVal(DateTime $date): int
+    private function gregVal(DateTime|DateTimeImmutable $date): int
     {
         $exp = explode('-', $date->format('m-d-Y'));
         return gregoriantojd(...$exp);
     }
 
-    private function validate(DateTime $date): void
+    private function validate(DateTime|DateTimeImmutable $date): void
     {
         $reference = new DateTime('1900-01-01');
 
